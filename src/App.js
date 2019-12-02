@@ -1,12 +1,11 @@
 import React from 'react';
-import WeatherLocation from './components/WeatherLocation/WeatherData/WeatherLocation'
-import logo from './logo.svg';
 import './App.css';
+import Index from './components/WeatherLocation/index'
 
 function App() {
   return (
     <div className="App">
-      <WeatherLocation></WeatherLocation>
+      <Index />
     </div>
   );
 }
