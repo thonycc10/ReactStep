@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import WeatherData  from "./WeatherData";
 import Location from "./Location";
 import PropTypes from 'prop-types';
@@ -12,13 +12,15 @@ const data = {
     wind: '10 m/s',
 };
 
-const Index = () => (
-    <div className="weatherLocationCont">
-        <Location city={"Perú pa el mundo"} />
-        <WeatherData data={data}/>
-    </div>
-);
-Index.prototype = {
-  city: PropTypes.string.isRequired,
-};
+class Index extends Component {
+    render() {
+        return (
+            <div className="weatherLocationCont">
+                <Location city={"Perú pa el mundo"}/>
+                <WeatherData data={data}/>
+            </div>
+        );
+    }
+}
+
 export default Index;
