@@ -22,4 +22,9 @@ const WeatherTemperature = ({ temperature, watherState}) => (
     </div>
 );
 
+WeatherTemperature.prototype = {
+    temperature: PropTypes.number.isRequired,
+    weatherState: PropTypes.string.isRequired,
+};
+
 export default WeatherTemperature;

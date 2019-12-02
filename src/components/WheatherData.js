@@ -3,7 +3,6 @@ import WeatherExtraInfo from "./WeatherExtraInfo";
 import WeatherTemperature from "./WeatherTemperature";
 import {
     CLOUDY,
-    WINDY,
 } from "../constants/weather"
 
 const WeatherData = () => (
