@@ -1,13 +1,15 @@
 import React from 'react'
 import WeatherExtraInfo from "./WeatherExtraInfo";
-import WeatherTemperature from "./WeatherTemperature";
+import Index from "../index";
+import  './style.css';
+
 import {
     CLOUDY,
-} from "../constants/weather"
+} from "../../../constants/weather"
 
 const WeatherData = () => (
-    <div>
-        <WeatherTemperature temperature={"20"} watherState={CLOUDY}/>
+    <div className="watherDataContenedor">
+        <Index temperature={"20"} watherState={CLOUDY}/>
         <WeatherExtraInfo humidity={"20"} wind={"10 m/s"}/>
     </div>
 );

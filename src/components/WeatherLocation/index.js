@@ -3,7 +3,7 @@ import WeatherIcons from "react-weathericons";
 import PropTypes from "prop-types";
 import {
     SUN,
-} from "../constants/weather"
+} from "../../constants/weather"
 
 
 const getWeatherIcon = weatherState => {
@@ -13,7 +13,7 @@ const getWeatherIcon = weatherState => {
         return <WeatherIcons name={SUN} size="2x"/>;
 };
 
-const WeatherTemperature = ({ temperature, watherState}) => (
+const Index = ({ temperature, watherState}) => (
     <div>
         {
             getWeatherIcon(watherState)
@@ -22,9 +22,9 @@ const WeatherTemperature = ({ temperature, watherState}) => (
     </div>
 );
 
-WeatherTemperature.prototype = {
+Index.prototype = {
     temperature: PropTypes.number.isRequired,
     weatherState: PropTypes.string.isRequired,
 };
 
-export default WeatherTemperature;
+export default Index;
