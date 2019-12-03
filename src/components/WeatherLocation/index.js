@@ -16,12 +16,6 @@ const data = {
     humidity: 10,
     wind: '10 m/s',
 };
-const data2 = {
-    temperature: 9,
-    weatherState: SNOW,
-    humidity: 10,
-    wind: '20 m/s',
-};
 
 class Index extends Component {
 
@@ -32,17 +26,33 @@ class Index extends Component {
             data: data,
         }
     }
+    getWeatherState = weather_data => {
+      return WINDY;
+    };
+    getData = weather_data => {
+        const { humidity, temp } = weather_data.main;
+        const { speed } = weather_data.wind;
+        const weatherState = this.getWeatherState(weather_data);
+
+        const data = {
+            humidity,
+            temperature: temp,
+            weatherState,
+            wind: `${speed} m/s`,
+        };
+
+        return data;
+    };
 
     handleUpdateClick = () => {
         fetch(api_weather).then( resolver => {
            return resolver.json();
         }).then(data => {
-            console.log(data);
+            const newWeather = this.getData(data);
             debugger
-        });
-        this.setState({
-            city: 'Perú!!!',
-            data: data2,
+            this.setState({
+                data: newWeather
+            });
         });
     };
 
