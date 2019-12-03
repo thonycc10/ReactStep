@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import WeatherData  from "./WeatherData";
 import Location from "./Location";
+import convert from "convert-units";
 import './style.css';
-import { WINDY, SNOW } from "../../constants/weather";
-
+import { WINDY } from "../../constants/weather";
 const location = "Lima,pe";
 const api_key = "8528aa9ca8113072c19255336296869f";
 const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
@@ -26,6 +26,9 @@ class Index extends Component {
             data: data,
         }
     }
+    getTemp = keivin => {
+      return Number(convert(keivin).from("K").to("C")).toFixed(0);
+    };
     getWeatherState = weather_data => {
       return WINDY;
     };
@@ -33,14 +36,13 @@ class Index extends Component {
         const { humidity, temp } = weather_data.main;
         const { speed } = weather_data.wind;
         const weatherState = this.getWeatherState(weather_data);
-
+        const temperature = this.getTemp(temp);
         const data = {
             humidity,
-            temperature: temp,
+            temperature,
             weatherState,
             wind: `${speed} m/s`,
         };
-
         return data;
     };
 
