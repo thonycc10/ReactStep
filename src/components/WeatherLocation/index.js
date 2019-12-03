@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import WeatherData  from "./WeatherData";
 import Location from "./Location";
-import PropTypes from 'prop-types';
 import './style.css';
 import { WINDY, SNOW } from "../../constants/weather";
+
+const location = "Lima,pe";
+const api_key = "8528aa9ca8113072c19255336296869f";
+const url_base_weather = "http://api.openweathermap.org/data/2.5/weather";
+
+const api_weather = `${url_base_weather}?q=${location}&appid=${api_key}`;
 
 const data = {
     temperature: 5,
@@ -29,6 +34,7 @@ class Index extends Component {
     }
 
     handleUpdateClick = () => {
+        fetch(api_weather);
         console.log("actualizar");
         this.setState({
             city: 'Perú!!!',
