@@ -34,8 +34,12 @@ class Index extends Component {
     }
 
     handleUpdateClick = () => {
-        fetch(api_weather);
-        console.log("actualizar");
+        fetch(api_weather).then( resolver => {
+           return resolver.json();
+        }).then(data => {
+            console.log(data);
+            debugger
+        });
         this.setState({
             city: 'Perú!!!',
             data: data2,
